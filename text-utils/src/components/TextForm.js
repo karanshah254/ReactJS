@@ -10,14 +10,25 @@ function TextForm(props) {
         // console.log("UpperCase is clicked" + " " + text);
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to UpperCase", "success");
     }
     const handleLoClick = () => {
         // console.log("UpperCase is clicked" + " " + text);
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to LowerCase", "success");
     }
     const handleClearText = () => {
         setText("");
+        props.showAlert("TextBox is cleared", "success");
+    }
+
+    const handleCopy = () => {
+        let text = document.getElementById("myBox");
+        text.select();
+        text.setSelectionRange(0, 9999);
+        navigator.clipboard.writeText(text.value);
+        props.showAlert("Copied to Clipboard", "success");
     }
 
     return (
@@ -30,7 +41,8 @@ function TextForm(props) {
                 <br />
                 <button type="button" className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
                 <button type="button" className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to LowerCase</button>
-                <button type="button" className="btn btn-primary mx-2" onClick={handleClearText}>Clear the above text</button>
+                <button type="button" className="btn btn-primary mx-2" onClick={handleClearText}>Clear above text</button>
+                <button type="button" className="btn btn-primary mx-2" onClick={handleCopy}>Copy to Clipboard</button>
             </div >
             <div className="container my-4" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h2>
