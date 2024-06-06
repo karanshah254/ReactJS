@@ -7,10 +7,11 @@ export class NewItem extends Component {
         return (
             <div className='my-3'>
                 <div className="card">
-                    <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{ left: '89%', zIndex: '1' }}>
-                        99+
-                        {source}
-                    </span>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', position: 'absolute', right: 0 }}>
+                        <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{ left: '89%', zIndex: '1' }}>
+                            {source}
+                        </span>
+                    </div>
                     <img className="card-img-top" src={!imageUrl ? "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=800" : imageUrl} alt="Card image cap" />
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
