@@ -54,7 +54,6 @@ const News = (props) => {
                 loader={<Spinner />}
             >
                 <div className="container">
-
                     <div className="row">
                         {articles.map((element) => {
                             return <div className="col-md-4" key={element.url}>
@@ -66,7 +65,6 @@ const News = (props) => {
             </InfiniteScroll>
         </>
     )
-
 }
 
 News.defaultProps = {
